@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+ 
+  <title>Weather Monitoring</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+
+  <style>
+
+.bn9 > span {
+  display: block;
+  padding: 10px 20px;
+  font-size: 17px;
+  align-self: center;
+  background: #0e0e10;
+  border-radius: 30px;
+}
+    
+    .container{  
+    text-align: center; 
+    padding-top: 100px;  
+    }  
+    #btn{  
+    font-size: 25px;  
+    }  
+    h3 {text-align: center;color: white;}
+    h1 {text-align: center;}
+    body {
+      
+      background-image: url('https://images.unsplash.com/photo-1515738611928-2a151b20a346?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-repeat: no-repeat;
+    }
+  </style>
+  
+  
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<script language="JavaScript" type="text/javascript">
+  function predict() {
+      var x = document.getElementById('result');
+      if (x.style.display == 'none') {
+          x.style.display = 'block';
+      } else {
+          x.style.display = 'none';
+      }   
+        
+      }
+
+</script>
+
+
+<body>
+  <nav class="row" style=" color: white; align-content: center;">
+    <h1>Asthma Attack Prediction by Weather Monitoring</h1>
+  </nav>
+  <br />
+  <br />
+  
+  
+  <div class="row" style= "color: white;">
+    {% if temp and rain and humidity %}
+    <div class="col-md-6 col-md-offset-3">     
+        
+        <h3>Temp : {{temp}}</h3>
+        <h3>Humidity : {{humidity}}</h3>
+        <h3>Rain : {{rain}}</h3>
+        <h3>O2 concentration : {{O2}}</h3>
+        <h3>CO2 concentration : {{CO2}}</h3>
+        <h3>PM 2.5 : {{pm}}</h3>
+    </div>
+    {% endif %}
+  </div>
+
+  
+    <div class="container">      
+      <button id ="btn" style="background-color: #fdde5c; color: #000; transition-duration: 0.4s; border-radius: 12px; width: 200px;" onclick="predict()">Predict </button>  
+    </div> 
+    <br>
+    <br>
+    <br>
+    <div id="result" style="color: white; text-align:center;font-size: 25px;display:none">Score : {{score}}<br> {{msg}}</div>
+    
+  
+  
+ 
+</body>
+  
+
+
+
+</html>
